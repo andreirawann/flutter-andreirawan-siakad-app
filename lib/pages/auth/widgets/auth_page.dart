@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../bloc/login/login_bloc.dart';
 import '../../../common/constants/colors.dart';
 import '../../../common/constants/images.dart';
 import '../../../common/widgets/buttons.dart';
-import '../dosen/dosen_page.dart';
-import '../mahasiswa/mahasiswa_page.dart';
 import 'login_bottom_sheet.dart';
 
 class AuthPage extends StatefulWidget {
@@ -48,33 +48,10 @@ class _AuthPageState extends State<AuthPage> {
         ),
       ),
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Button.filled(
-              onPressed: () {
-                showModalBottomSheet(
-                  context: context,
-                  useSafeArea: true,
-                  isScrollControlled: true,
-                  builder: (BuildContext context) {
-                    return LoginBottomSheet(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const DosenPage(),
-                          ),
-                        );
-                      },
-                    );
-                  },
-                );
-              },
-              label: 'CIVITAS AKADEMIK',
-            ),
             const SizedBox(height: 8.0),
             Button.outlined(
               onPressed: () {
@@ -83,21 +60,14 @@ class _AuthPageState extends State<AuthPage> {
                   useSafeArea: true,
                   isScrollControlled: true,
                   builder: (BuildContext context) {
-                    return LoginBottomSheet(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const MahasiswaPage(),
-                          ),
-                        );
-                      },
+                    return BlocProvider(
+                      create: (context) => LoginBloc(),
+                      child: const LoginBottomSheet(),
                     );
                   },
                 );
               },
-              label: 'MAHASISWA',
+              label: 'LOGIN',
             ),
             const SizedBox(height: 32.0),
             const Text.rich(

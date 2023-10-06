@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_siakad_app/pages/auth/mahasiswa/dashboard_page.dart';
 import 'package:flutter_siakad_app/pages/auth/mahasiswa/setting_page.dart';
+import 'package:flutter_siakad_app/pages/profile/profile_page.dart';
 
 import '../../../common/constants/colors.dart';
 import '../../../common/constants/icons.dart';
@@ -20,7 +21,9 @@ class _MahasiswaPageState extends State<MahasiswaPage> {
     const Center(
       child: Text('Schedule'),
     ),
-    const SettingPage()
+    const ProfilPage(
+      role: 'Mahasiswa',
+    ),
   ];
 
   void _onItemTapped(int index) {
