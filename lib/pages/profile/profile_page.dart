@@ -2,8 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dash/flutter_dash.dart';
-
-import '../../bloc/bloc/logout_bloc.dart';
+import '../../bloc/logout/logout_bloc.dart';
 import '../../common/constants/colors.dart';
 import '../../common/constants/icons.dart';
 import '../../common/widgets/custom_scaffold.dart';

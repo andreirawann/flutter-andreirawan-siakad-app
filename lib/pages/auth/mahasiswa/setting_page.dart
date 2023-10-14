@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_siakad_app/data/datasources/auth_local_datasource.dart';
-
-import '../../../bloc/bloc/logout_bloc.dart';
+import '../../../bloc/logout/logout_bloc.dart';
 import '../widgets/auth_page.dart';
 
 class SettingPage extends StatefulWidget {
